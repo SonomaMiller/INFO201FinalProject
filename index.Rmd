@@ -1,0 +1,343 @@
+---
+title: "Exploratory Analysis"
+output: html_document
+---
+
+## Project title
+
+Birth Control Analysis 2006-2015
+
+### Authors
+
+Sonoma Miller
+
+### Date
+
+May 13, 2024
+
+### Abstract
+
+  I am analyzing the popularity of different forms of contraception over time, as well as the accessibility of different forms of birth control. The intention of this analysis is to study trends over time in response to social stigmas and cultural norms.
+
+### Keywords
+
+contraceptives, women, fertility
+
+### Introduction  
+
+- Does the popularity of different types of birth control change with age?
+- What is the most common reason that the use of a contraceptive is discontinued?
+- What is the most popular form of contraceptive?
+- Why are contraceptives used?
+
+  This project is grounded in the analysis of extensive data concerning American women's utilization of birth control and contraceptives. By leveraging this dataset, we aim to delve deeply into the landscape of contraceptive methods, scrutinizing their efficacy, prevalence, and shortcomings. Our study seeks to unravel the intricate web of factors influencing contraceptive choices among women across different demographics and time periods.
+  Through rigorous analysis, we endeavor to not only identify the prevailing trends in contraceptive usage but also to probe the underlying reasons driving these patterns. By shedding light on the dynamic interplay between societal norms, healthcare access, and individual preferences, our research aspires to offer nuanced insights into the complexities of contraceptive decision-making.
+  Moreover, our examination extends beyond mere statistical analysis; it is underpinned by a broader commitment to advancing public health outcomes. Recognizing the pivotal role of contraceptives in safeguarding reproductive health and empowering individuals, we are driven by a sense of urgency to address existing gaps in our understanding of contraceptive behavior.
+  In doing so, we seek to pave the way for targeted interventions and policy initiatives aimed at optimizing contraceptive access, enhancing healthcare delivery, and fostering informed decision-making among women. By elucidating the nuanced dynamics of contraceptive usage and discontinuation, our research endeavors to catalyze positive change in healthcare practices and policy frameworks, ultimately contributing to improved reproductive health outcomes for women across the nation.
+
+### Related Work
+
+  These works describe that around 60% of women aged 20-24 used condoms as their primary contraceptive method, while 25% used oral contraceptive pills, and a large percentage use both (Daniels and Abma). The oral contraceptive became much more popular in 1965 when Griswold v. Connecticut struck down the law banning birth control for married couples, and again in 1972 when the Eisenstadt v. Baird decision granted unmarried adults legal access to contraceptives in every state. It is popular relative to other methods because it is relatively uninvasive to IUDs and injections, and gives women control over when they choose to take it. Both emergency and regular forms of contraceptives are now available over the counter, granting women privacy in their choices. Opill, the first over the counter option, costs $30 per month on average, compared to $50 per month for traditional oral contraceptive pills (KFF). Additionally, Opill is covered by 80% of insurance plans surveyed, making it more accessible to all women. This is a partial solution that addresses the fact that 30% of pharmacies surveyed had stockouts of certain oral contraceptive pills in the past year, which led to potential access issues for women seeking this form of contraception (Diep et al). Additionally, the threat of diminished healthcare and reproductive rights has caused an increase in long-acting reversible contraceptives (LARC) such as IUDs by around 2.5% (Daniels and Abma).
+
+[Daniels, Kimberly, and Joyce Abma. “Current Contraceptive Status Among Women Aged 15–49: United States, 2015–2017.” Centers for Disease Control and Prevention, NCHS Data Brief No. 327, 14 Feb. 2019, www.cdc.gov/nchs/products/databriefs/db327.htm. ](https://www.cdc.gov/nchs/products/databriefs/db327.htm)
+[“Three Charts: The Cost and Coverage of Opill—the First FDA-Approved Over-The-Counter Daily Oral Contraceptive Pill in the United States.” KFF, 5 Mar. 2024, www.kff.org/health-costs/press-release/three-charts-the-cost-and-coverage-of-opill-the-first-fda-approved-over-the-counter-daily-oral-contraceptive-pill-in-the-united-states/.](https://www.kff.org/health-costs/press-release/three-charts-the-cost-and-coverage-of-opill-the-first-fda-approved-over-the-counter-daily-oral-contraceptive-pill-in-the-united-states/)
+[Diep, Karen, et al. “Oral Contraceptive Pills: Access and Availability.” KFF, 27 Oct. 2023, www.kff.org/womens-health-policy/issue-brief/oral-contraceptive-pills-access-and-availability/.](https://www.kff.org/womens-health-policy/issue-brief/oral-contraceptive-pills-access-and-availability/)
+
+### The Dataset
+
+[Link to dataset](https://github.com/the-pudding/data/blob/master/birth-control)
+
+  This dataset, birth-control, was used to write the essay “Let’s Talk About Birth Control,” published by Amber Thomas at The Pudding on July 12, 2018. The data itself was collected from the CDC’s National Survey of Family Growth from 2006-2015, but was synthesized into one, clean dataset by The Pudding. The participants include women ranging from 15-44 years old that were household residents in the United States of America and had used any form of contraceptives. It was collected in order to provide an open-source, nationally representative sample that otherwise oversamples for non-Hispanic black people, Hispanic people, and teens aged 15-19. The CDC administered this study by completing annual surveys of both men and women, of which here only women are being considered. 
+  Each row in the dataset represents a participant, with 23,580 women in total. The 366 columns include the responses to questions that were asked in the surveys. Questions include the age, marital and fertility status, sexual activity of the women. It then inquires about which types of contraceptives they have used, including condoms, withdrawal, IUDs, injections, pills, and patches. It also asks why they had used them and if they had discontinued the use of any of these, and if so, what the reason was. Lastly, the data includes how often treatment was administered and how it was paid for.
+
+### Implications
+
+  The stakeholders of this study include healthcare providers, women, and the general public that aim to advocate for women and promote awareness of womens’ rights. 
+  Insights gleaned from our analysis can inform healthcare providers about the prevailing trends in contraceptive usage, enabling them to tailor counseling and intervention strategies to meet the diverse needs of their patients. By understanding the factors influencing contraceptive decisions and discontinuation, providers can offer more personalized care and support, ultimately enhancing patient satisfaction and health outcomes.
+  Nextly, policymakers can leverage the insights from this study to develop evidence-based policies aimed at improving contraceptive access and affordability. By addressing the barriers identified in our analysis, such as disparities in access to certain contraceptive methods or reasons for discontinuation, policymakers can enact targeted interventions to promote equitable access to reproductive healthcare services and reduce unintended pregnancies.
+  Finally, Our findings can serve as a rallying point for public health advocates seeking to raise awareness about the importance of reproductive health and contraceptive education. By highlighting the societal attitudes and cultural norms influencing contraceptive behavior, advocates can work towards destigmatizing contraception, promoting comprehensive sex education, and empowering individuals to make informed choices about their reproductive health.
+
+### Limitations & Challenges
+
+	While this study offers valuable insights into contraceptive behavior among American women, several limitations should be acknowledged. The administration of this study was not consistent over time; for example, in the 2006-2010 surveys, the sexual orientation of the participants was not asked. Additionally, the timeframe of the dataset (2006-2015) may not capture recent developments in contraceptive technology, access, and usage patterns and while they are reflected in the research of additional studies, may not be included in the dataset given.
+	Moreover, my analysis focuses on trends in contraceptive usage over time; however, it does not account for the temporal dynamics of individual contraceptive decisions. Factors such as life events, changes in relationship status, or access to healthcare services may influence contraceptive choices on a more granular level. It is important to recognize the lack of nuance presented in numerical datasets, as depth and narrative are necessary to gain a full understanding of the participants of the study. However, the analysis of sensitive health data raises ethical considerations regarding participant privacy and informed consent. While efforts have been made to anonymize the dataset, ethical concerns surrounding data privacy and confidentiality remain paramount. Publishing narratives on a sensitive topic such as birth control, particularly amidst political disagreement, can place these women in an unintentionally vulnerable and public position.
+	
+### Summary Information
+
+I have discovered that there were 366 observations, or questions asked. There were 23,579 participants
+total, of which the average age was 28.7. 88.1% of them have had sex ever, and 86.3% of them have
+used birth control ever.
+
+```{r}
+#loads birth control dataset in. read README.md for more info on the data used.
+library(tidyverse)
+library(dplyr)
+library(stringr)
+
+contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO 201/birth_control_data.csv")
+
+summary_info <- list()
+# number of data columns/questions asked
+summary_info$num_observations <- ncol(contraceptives)
+# number of participants
+summary_info$num_participants <- nrow(contraceptives)
+#average age of participants
+summary_info$avg_age <- contraceptives %>%
+  filter(!is.na(AGE_R)) %>%
+  pull(AGE_R) %>%
+  mean()
+# percent of participants that have had sex
+had_sex <- contraceptives$RHADSEX
+sex_yes <- sum(had_sex == 1)
+sex_no <- sum(had_sex == 5)
+percent_had_sex <- (sex_yes / (sex_yes + sex_no))
+
+summary_info$had_sex <- percent_had_sex
+# percent that have used any contraception ever
+ever <- contraceptives$EVERUSED
+len_ever <- length(ever)
+ever_yes <- sum(ever == 1) # have used contraception
+ever_no <- sum(ever == 5) # have not
+percent_ever <- ever_yes / (ever_yes + ever_no)
+
+summary_info$used_ever <- percent_ever
+
+print(summary_info)
+```
+### Table
+
+```{r}
+#loads birth control dataset in. read README.md for more info on the data used.
+library(tidyverse)
+library(dplyr)
+library(stringr)
+
+contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO 201/birth_control_data.csv")
+
+# SEDBC is whether they received sex education before age 18
+# sex_ed_used is which participants received sex ed and have used contraceptives
+sex_ed_used <- contraceptives %>%
+  filter(SEDBC == 1) %>%
+  filter(EVERUSED == 1) %>%
+  group_by(SEDBC)
+
+# participants that did not receive sex ed and have used contraceptives
+no_sex_ed_used <- contraceptives %>%
+  filter(SEDBC == 5) %>%
+  filter(EVERUSED == 1) %>%
+  group_by(SEDBC)
+
+print(paste("Participants that received sex education and used contraceptives:", nrow(sex_ed_used)))
+print(paste("Participants that didn't receive sex education and used contraceptives:", nrow(no_sex_ed_used)))
+```
+
+I included this table in order to be able to filter rows by whether they received sex
+education or not, and if they did, whether they have ever used contraceptives. This 
+reveals that a higher number of participants that received sex education use contraceptives,
+and while this doesn't guarantee causation, shows a correlation between the two.
+
+PERSONAL NOTE: In my final project, I would like to further delve into this. I plan
+to additionally analyze whether their sex ed promoted abstinence before marriage,
+and what percentage of those who did/didn't receive it were sexually active.
+
+### Chart 1
+
+The following chart visualizes different forms of contraceptives and their popularity
+amongst users. This reveals that condoms are the most popular form, followed by pill,
+withdrawal, patch and the ring. I used a bar plot because there were multiple categories
+with quantitative data for usage.
+
+``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+library(ggplot2)
+library(stringr)
+
+contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO 201/birth_control_data.csv")
+
+# data about use of different contraceptives
+# percent that have used pill ever
+pill <- contraceptives$PILL
+pill_yes <- sum(pill == 1) # yes
+pill_no <- sum(pill == 5) # no
+percent_pill <- pill_yes / (pill_yes + pill_no)
+
+# percent that have used patch ever
+patch <- contraceptives$PATCH
+patch_yes <- sum(patch == 1) # yes
+patch_no <- sum(patch == 5) # no
+percent_patch <- patch_yes / (patch_yes + patch_no)
+
+# percent that have used ring ever
+ring <- contraceptives$RING
+ring_yes <- sum(ring == 1) # yes
+ring_no <- sum(ring == 5) # no
+percent_ring <- ring_yes / (ring_yes + ring_no)
+
+# percent that have used condoms ever
+condoms <- contraceptives$CONDOM
+# changing all N/A values (inapplicable) to 'refused' (8) for relevancy purposes
+condoms <- replace(contraceptives$CONDOM, is.na(contraceptives$CONDOM), 8)
+condoms_yes <- sum(condoms == 1) # have used condoms
+condoms_no <- sum(condoms == 5)
+percent_condoms <- condoms_yes / (condoms_yes + condoms_no)
+
+# percent that have used withdrawal method
+withdrawal <- contraceptives$WIDRAWAL
+withdrawal <- replace(contraceptives$WIDRAWAL, is.na(contraceptives$WIDRAWAL
+), 8)
+withdrawal_yes <- sum(withdrawal == 1)
+withdrawal_no <- sum(withdrawal ==5)
+percent_withdrawal <- withdrawal_yes / (withdrawal_yes + withdrawal_no)
+
+
+# prepare for visualization
+contraceptives_data <- data.frame(
+  method = factor(c("Condoms", "Pill", "Withdrawal", "Patch", "Ring"), levels = c("Condoms", "Pill", "Withdrawal", "Patch", "Ring")),
+  percentage_used = c(percent_condoms, percent_pill, percent_withdrawal, percent_patch, percent_ring) * 100
+)
+
+# Create the bar chart
+bar_chart <- ggplot(contraceptives_data, aes(x = method, y = percentage_used)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Use of Contraceptive Methods",
+       x = "Contraceptive Method",
+       y = "Percentage Used (%)")
+  
+print(bar_chart)
+```
+
+### Chart 2
+
+I included this chart as a way of analyzing why people aren't or stop using contraceptive
+methods. This is again a bar plot because there are multiple categories with quantitative
+measures (number of respondents that submitted that answer). I opted to include the
+codebook below instead of as labels because of their length. This reveals that the most
+popular reason participants don't use contraception is because they don't mind if they
+get pregnant!
+```{r}
+library(stringr)
+library(ggplot2)
+
+contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO 201/birth_control_data.csv")
+
+# most popular reasons people aren't using contraceptives
+
+why_not_using <- paste(contraceptives$WHYNOUSING1, contraceptives$WHYNOUSING2, 
+                       contraceptives$WHYNOUSING3, contraceptives$WHYNOUSING4,
+                       contraceptives$WHYNOUSING5)
+
+split_elements <- strsplit(why_not_using, " ")
+
+# Remove NA values from each split element
+why_not_using <- lapply(split_elements, function(x) {
+  x <- x[!x %in% c("7", "8", "9", "98", "99", "NA")]
+  return(x)
+})
+
+cleaned_vector <- unlist(why_not_using)
+frequency_table <- table(cleaned_vector)
+frequency_dict <- as.list(frequency_table)
+
+
+# visualize data
+reasons_data <- data.frame(
+  Reason_Code = 1:6,
+  Frequency = as.numeric(unname(frequency_dict))
+)
+
+reasons_data <- reasons_data[order(-reasons_data$Frequency), ]
+
+# Create the bar plot
+barplot(reasons_data$Frequency, 
+        main = "Reasons People Aren't Using Contraceptives",
+        xlab = "Reason (Numerical Code)",
+        ylab = "Frequency",
+        names.arg = reasons_data$Reason_Code)
+
+# Add reasons codebook
+reasons_text <- c(
+  "1: You do not expect to have sex",
+  "2: You do not think you can get pregnant",
+  "3: You don't really mind if you get pregnant",
+  "4: You are worried about the side effects of birth control",
+  "5: Your male partner does not want you to use a birth control method",
+  "6: Your male partner himself does not want to use a birth control method"
+)
+
+print("Numerical Codebook:")
+print(reasons_text)
+```
+
+### Chart 3
+
+I included this chart to analyze why people are using a contraceptive or birth control pill. The results were shocking- not only does birth control dominate as a reason for use, but all reasons have declined over time. I used a line graph with multiple lines because there were multiple variables tracked over time.
+
+PERSONAL NOTE: In the future, I plan to analyze all seven YUSEPILL columns. Participants had the option to choose multiple reasons, and I want a more thorough understanding of each reason's popularity.
+This graph was really hard to make!
+```{r}
+library(dplyr)
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+
+contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO 201/birth_control_data.csv")
+
+# Add reasons codebook
+reasons_text_2 <- c(
+  "1: Birth control",
+  "2: Cramps, or pain during menstrual periods",
+  "3: Treatment for acne",
+  "4: Treatment for endometriosis",
+  "5: Other reasons",
+  "6: To regulate your menstrual periods",
+  "7: To reduce menstrual bleeding"
+)
+
+# Map the unique values to their corresponding year ranges
+year_map <- function(yearRange) {
+  case_when(
+    yearRange == "610" ~ "2006-2010",
+    yearRange == "1113" ~ "2011-2013",
+    yearRange == "1315" ~ "2013-2015",
+    TRUE ~ NA_character_
+  )
+}
+
+# Apply the mapping function to create the "Year" column
+contraceptives <- contraceptives %>%
+  mutate(Year = year_map(yearRange)) %>%
+  filter(YUSEPILL1 >= 1 & YUSEPILL1 <= 7)
+
+
+# Create a pivot table
+pivot_table <- contraceptives %>%
+  group_by(Year, YUSEPILL1) %>%
+  summarise(Frequency = n()) %>%
+  pivot_wider(names_from = Year, values_from = Frequency, values_fill = 0)
+
+# Reorder columns
+pivot_table <- pivot_table[,c("2006-2010", "2011-2013", "2013-2015")]
+
+# Display the pivot table
+print(pivot_table)
+
+pivot_table$YUSEPILL1 <- rownames(pivot_table)
+
+# Reshape the data from wide to long format
+pivot_long <- pivot_table %>%
+  pivot_longer(cols = c("2006-2010", "2011-2013", "2013-2015"), names_to = "Year", values_to = "Frequency")
+
+# Convert Year column to factor for correct ordering
+pivot_long$Year <- factor(pivot_long$Year, levels = c("2006-2010", "2011-2013", "2013-2015"))
+
+# Plot the line graph
+ggplot(pivot_long, aes(x = Year, y = Frequency, group = YUSEPILL1, color = YUSEPILL1)) +
+  geom_line(aes(group = YUSEPILL1)) +
+  geom_point() +
+  labs(title = "Reasons for Contraceptive Pill Use Over Years",
+       x = "Year",
+       y = "Frequency") +
+  scale_color_manual(name = "Reasons for Use",
+                     labels = reasons_text_2,
+                     values = rainbow(length(reasons_text_2))) +
+  theme_minimal()
+```
