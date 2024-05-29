@@ -94,6 +94,10 @@ ui <- fluidPage(
     ),
     tabPanel("Implications",
              page_three_content
+    ),
+    tabPanel("Dataset",
+             p("You can download the dataset from the following link:"),
+             a("Download Dataset", href = "https://github.com/the-pudding/data/blob/master/birth-control")
     )
   )
 )
