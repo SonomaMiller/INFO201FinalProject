@@ -6,7 +6,7 @@ library(shiny)
 
 # Server logic for chart 1
 server_chart1 <- function(input, output, session) {
-  contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO201/INFO201FinalProject/birth_control_data.csv")
+  contraceptives <- read.csv("birth_control_data.csv")
   
   output$chart1 <- renderPlot({
     # Data about use of different contraceptives
@@ -59,7 +59,7 @@ server_chart1 <- function(input, output, session) {
 
 # Server logic for chart 2
 server_chart2 <- function(input, output, session) {
-  contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO201/INFO201FinalProject/birth_control_data.csv")
+  contraceptives <- read.csv("birth_control_data.csv")
   
   output$chart2 <- renderPlot({
     # most popular reasons people aren't using contraceptives
@@ -101,7 +101,7 @@ server_chart2 <- function(input, output, session) {
 
 # Server logic for chart 3
 server_chart3 <- function(input, output, session) {
-  contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO201/INFO201FinalProject/birth_control_data.csv")
+  contraceptives <- read.csv("birth_control_data.csv")
   
   output$chart3 <- renderPlot({
     # Map the unique values to their corresponding year ranges
