@@ -2,9 +2,7 @@ library(ggplot2)
 library(stringr)
 library(dplyr)
 library(tidyr)
-
-contraceptives <- read.csv("C:/Users/sowas/Downloads/INFO201/INFO201FinalProject/birth_control_data.csv")
-
+library(shiny)
 
 # Server logic for chart 1
 server_chart1 <- function(input, output, session) {
